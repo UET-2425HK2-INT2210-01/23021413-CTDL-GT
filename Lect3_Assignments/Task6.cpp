@@ -5,7 +5,7 @@ struct Node {
 };
 
 // Push Operation: Time Complexity: O(1)
-void push(Node*& top, int value) {
+function push(Node*& top, int value) {
     Node* newNode = new Node();
     newNode->data = value;
     newNode->next = top;  // Point to the current top node
@@ -13,7 +13,7 @@ void push(Node*& top, int value) {
 }
 
 // Pop Operation: Time Complexity: O(1)
-int pop(Node*& top) {
+function pop(Node*& top) {
     if (top == nullptr) {
         throw "Stack Underflow";  // Error if the stack is empty
     }
@@ -25,7 +25,7 @@ int pop(Node*& top) {
 }
 
 // Peek Operation: Time Complexity: O(1)
-int peek(Node* top) {
+function peek(Node* top) {
     if (top == nullptr) {
         throw "Stack Underflow";  // Error if the stack is empty
     }
@@ -33,12 +33,12 @@ int peek(Node* top) {
 }
 
 // IsEmpty Operation: Time Complexity: O(1)
-bool isEmpty(Node* top) {
+function isEmpty(Node* top) {
     return top == nullptr;  // Return true if the stack is empty
 }
 
 // Size Operation: Time Complexity: O(n)
-int size(Node* top) {
+function size(Node* top) {
     int count = 0;
     Node* current = top;
     while (current != nullptr) {
