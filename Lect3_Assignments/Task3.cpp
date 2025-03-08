@@ -2,19 +2,19 @@
 // Time Complexity: O(1)
 function enqueue(queue[], front, rear, element, capacity):
     if rear == capacity - 1:
-        print "Queue Overflow"  // Check for overflow
+        print "Queue Overflow"  
     else:
         rear = rear + 1
-        queue[rear] = element  // Insert the element at the rear
+        queue[rear] = element  
 
 // Dequeue
 // Time Complexity: O(1)
 function dequeue(queue[], front, rear):
     if front > rear:
-        print "Queue Underflow"  // Check for underflow
+        print "Queue Underflow"  
     else:
         element = queue[front]
-        front = front + 1  // Increment the front pointer to remove the element
+        front = front + 1  
         return element
     
 // Front
