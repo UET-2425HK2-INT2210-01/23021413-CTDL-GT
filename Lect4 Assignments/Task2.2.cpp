@@ -1,3 +1,5 @@
+// output expected: 3 39 94 16 5 23 13 88 44 11 12 
+
 #include <iostream>
 #define HASH_SIZE 11
 using namespace std;
