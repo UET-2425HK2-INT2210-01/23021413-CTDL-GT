@@ -1,51 +1,52 @@
 #include <iostream>
-#include <unordered_map> // Hash - map
 using namespace std;
 
 struct Node {
     int data;
     Node* firstChild;
-    Node* nextSliding;
-    Node(int val) : data(val), firstChild(nullptr), nextSliding(nullptr) {}
+    Node* nextSibling;
+    Node(int val) : data(val), firstChild(nullptr), nextSibling(nullptr) {}
 };
 
 class Tree {
 private:
     int height;
     Node* root;
-    unordered_map<int, Node*> nodeMap; 
-    unordered_map<int, bool> isChild;  
+    Node** nodes; // Array to store pointers to nodes
+    bool* isChild; // Array to track if a node is a child of another node
 
     Node* newNode(int val) {
         return new Node(val);
     }
 
     void AddChild(int u, int v) {
-        if (nodeMap.find(u) == nodeMap.end()) {
-            nodeMap[u] = newNode(u);
+        if (nodes[u] == nullptr) {
+            nodes[u] = newNode(u);
         }
-        if (nodeMap.find(v) == nodeMap.end()) {
-            nodeMap[v] = newNode(v);
+        if (nodes[v] == nullptr) {
+            nodes[v] = newNode(v);
         }
 
-        Node* parent = nodeMap[u];
-        Node* child = nodeMap[v];
+        Node* parent = nodes[u];
+        Node* child = nodes[v];
 
         if (parent->firstChild == nullptr) {
             parent->firstChild = child;
         } else {
             Node* temp = parent->firstChild;
-            while (temp->nextSliding != nullptr) {
-                temp = temp->nextSliding;
+            while (temp->nextSibling != nullptr) {
+                temp = temp->nextSibling;
             }
-            temp->nextSliding = child;
+            temp->nextSibling = child;
         }
+
+        isChild[v] = true; // Mark v as a child
     }
 
     void UpdateRoot(int n) {
         for (int i = 1; i <= n; i++) {
-            if (nodeMap.find(i) != nodeMap.end() && isChild.find(i) == isChild.end()) {
-                root = nodeMap[i];
+            if (nodes[i] != nullptr && !isChild[i]) {
+                root = nodes[i];
                 break;
             }
         }
@@ -57,7 +58,7 @@ private:
         Node* child = node->firstChild;
         while (child) {
             maxHeight = max(maxHeight, 1 + calculateHeight(child));
-            child = child->nextSliding;
+            child = child->nextSibling;
         }
         return maxHeight;
     }
@@ -68,7 +69,7 @@ private:
         Node* child = node->firstChild;
         while (child) {
             preorder(child);
-            child = child->nextSliding;
+            child = child->nextSibling;
         }
     }
 
@@ -77,7 +78,7 @@ private:
         Node* child = node->firstChild;
         while (child) {
             postorder(child);
-            child = child->nextSliding;
+            child = child->nextSibling;
         }
         cout << node->data << " ";
     }
@@ -90,7 +91,7 @@ private:
             childCount++;
             if (childCount > 2) return false;
             if (!isBinary(child)) return false;
-            child = child->nextSliding;
+            child = child->nextSibling;
         }
         return true;
     }
@@ -99,23 +100,30 @@ private:
         if (!node) return;
         Node* child = node->firstChild;
         if (child) {
-            inorder(child); 
-            child = child->nextSliding;
+            inorder(child);
+            child = child->nextSibling;
         }
         cout << node->data << " ";
         if (child) {
-            inorder(child); 
+            inorder(child);
         }
     }
 
 public:
     Tree(int n, int m) : height(0), root(nullptr) {
+        nodes = new Node*[n + 1]; // Allocate memory for nodes
+        isChild = new bool[n + 1]; // Allocate memory for isChild array
+        for (int i = 0; i <= n; i++) {
+            nodes[i] = nullptr; // Initialize all nodes to nullptr
+            isChild[i] = false; // Initialize all isChild flags to false
+        }
+
         for (int i = 0; i < m; i++) {
             int u, v;
             cin >> u >> v;
             AddChild(u, v);
-            isChild[v] = true; 
         }
+
         UpdateRoot(n);
         height = calculateHeight(root);
     }
@@ -135,9 +143,11 @@ public:
     }
 
     ~Tree() {
-        for (auto& pair : nodeMap) {
-            deleteTree(pair.second);
+        for (int i = 1; nodes[i] != nullptr; i++) {
+            deleteTree(nodes[i]);
         }
+        delete[] nodes; // Free memory for nodes array
+        delete[] isChild; // Free memory for isChild array
     }
 
 private:
@@ -145,7 +155,7 @@ private:
         if (!node) return;
         Node* child = node->firstChild;
         while (child) {
-            Node* next = child->nextSliding;
+            Node* next = child->nextSibling;
             deleteTree(child);
             child = next;
         }
