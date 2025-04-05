@@ -30,6 +30,11 @@
 // 20 lớn hơn 13
 // → đi sang nhánh phải của 13
 
+/* Binary and Heap trees
+   1. Given a list of integer numbers: 2, 1, 10, 6, 3, 8, 7, 13, 20.
+    - Draw the binary search tree
+*/
+
 #include <iostream>
 using namespace std;
 struct Node {
