@@ -18,7 +18,10 @@
 //       10      8
 //      / \     / \
 //     2   3   1   7
-
+/*
+   2. Given a list of integer numbers: 2, 1, 10, 6, 3, 8, 7, 13, 20.
+    - Draw the heap tree after deleting: 6, 13, 35
+*/
 #include <iostream>
 using namespace std;
 // Hàm in heap dưới dạng cây nhị phân
