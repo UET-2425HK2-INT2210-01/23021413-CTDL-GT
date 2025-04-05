@@ -1,3 +1,33 @@
+// MAX_HEAP:  
+//          20
+//        /    \
+//       13     10
+//      / \     / \
+//     6   3   8   7
+//    / \
+//   2   1
+// MIN_HEAP:
+//          1
+//        /   \
+//       2      7
+//      / \    / \
+//     6   3  10  8
+//    / \
+//   13 20
+// MIX_HEAP:
+//          20
+//        /    \
+//       13     8
+//      / \    / \
+//     10   3 2   7
+//    / \
+//   1   6
+
+/*
+   2. Given a list of integer numbers: 2, 1, 10, 6, 3, 8, 7, 13, 20.
+    - Draw the heap tree
+*/
+
 #include <iostream>  
 using namespace std; 
 // Hàm in heap dưới dạng cây nhị phân
