@@ -115,7 +115,6 @@ int main() {
     // Các giá trị cần xóa
     int toDelete[] = {6,13,35};    
     // Xử lý MAX_HEAP
-    cout << "MAX_HEAP ban dau:\n";
     printHeap(maxHeap, maxSize);
     for (int val : toDelete) {
         if (deleteFromHeap(maxHeap, maxSize, val, true)) {
@@ -126,7 +125,6 @@ int main() {
         }
     }    
     // Xử lý MIN_HEAP
-    cout << "\nMIN_HEAP ban dau:\n";
     printHeap(minHeap, minSize);
     for (int val : toDelete) {
         if (deleteFromHeap(minHeap, minSize, val, false)) {
@@ -137,7 +135,6 @@ int main() {
         }
     }    
     // Xử lý MIX_HEAP (coi như MAX_HEAP)
-    cout << "\nMIX_HEAP ban dau:\n";
     printHeap(mixHeap, mixSize);
     for (int val : toDelete) {
         if (deleteFromHeap(mixHeap, mixSize, val, true)) {
