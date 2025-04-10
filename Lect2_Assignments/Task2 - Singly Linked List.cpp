@@ -5,6 +5,7 @@
 //               forward one position.
 // Start from an empty list, your task is to implement a linked list, perform
 // operations read from the keyboard.
+
 //    Input:
 //    − The first line contains an integer number n which is the number of
 //      operations.
@@ -13,6 +14,7 @@
 //      ● insert p x
 //      ● delete p
 // where p is the position and x is the number.
+
 //    Output: Write the resulting linked list to the screen in one line. Numbers
 //            are separated by spaces.
 
