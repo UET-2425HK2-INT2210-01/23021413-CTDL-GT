@@ -24,6 +24,82 @@
 // insert 1 4
 // insert 2 2
 // delete 1
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+(Pseudocode)
+// Định nghĩa cấu trúc Node
+STRUCT Node
+    data: integer
+    next: con trỏ Node
+
+// Khởi tạo Node với giá trị val
+FUNCTION Node(val)
+    data = val
+    next = NULL
+
+// Định nghĩa lớp LinkedList
+CLASS LinkedList
+    PRIVATE:
+        head: con trỏ Node
+
+    PUBLIC:
+        // Khởi tạo danh sách liên kết rỗng
+        FUNCTION LinkedList()
+            head = NULL
+
+        // Chèn phần tử x vào vị trí p
+        FUNCTION insert(p, x)
+            Tạo newNode với data = x
+            Nếu p == 0
+                newNode.next = head
+                head = newNode
+            Ngược lại
+                temp = head
+                Di chuyển temp đến vị trí p-1
+                Nếu temp != NULL
+                    newNode.next = temp.next
+                    temp.next = newNode
+
+        // Xóa phần tử tại vị trí p
+        FUNCTION deleteNode(p)
+            Nếu head == NULL thì return
+            Nếu p == 0
+                temp = head
+                head = head.next
+                Xóa temp
+            Ngược lại
+                temp = head
+                Di chuyển temp đến vị trí p-1
+                Nếu temp != NULL và temp.next != NULL
+                    delNode = temp.next
+                    temp.next = temp.next.next
+                    Xóa delNode
+
+        // In danh sách liên kết
+        FUNCTION printList()
+            temp = head
+            Trong khi temp != NULL
+                In temp.data
+                temp = temp.next
+            Xuống dòng
+
+// Chương trình chính
+FUNCTION main()
+    Đọc n (số lượng thao tác)
+    Tạo list là đối tượng LinkedList
+
+    Lặp n lần:
+        Đọc operation
+        Nếu operation == "insert"
+            Đọc p và x
+            Gọi list.insert(p, x)
+        Ngược lại nếu operation == "delete"
+            Đọc p
+            Gọi list.deleteNode(p)
+
+    Gọi list.printList()
+    Kết thúc
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #include <iostream>
 using namespace std;
@@ -40,37 +116,40 @@ class LinkedList {
     public:
         LinkedList() : head(nullptr) {}
         
-        void insert(int p, int x) {
+        void insert(int p, int x) 
+       {
             Node* newNode = new Node(x);
 
-            if (p == 0) {
+            if (p == 0) 
+            {
                 newNode->next = head;
                 head = newNode;
-            } else {
+            } else 
+            {
                 Node* temp = head;
-                for (int i = 0; i < p - 1 && temp != nullptr; i++) {
-                    temp = temp->next;
-                }
-                if (temp != nullptr) {
+                for (int i = 0; i < p - 1 && temp != nullptr; i++) {temp = temp->next;}
+                if (temp != nullptr) 
+                {
                     newNode->next = temp->next;
                     temp->next = newNode;
                 }
             }
         }
 
-        void deleteNode(int p) {
+        void deleteNode(int p) 
+      {
             if (head == nullptr) return;
-
-            if (p == 0) {
+            if (p == 0) 
+            {
                 Node* temp = head;
                 head = head->next;
                 delete temp;
-            } else {
+            } else 
+            {
                 Node* temp = head;
-                for (int i = 0; i < p - 1 && temp != nullptr; i++) {
-                    temp = temp->next;
-                }
-                if (temp != nullptr && temp->next != nullptr) {
+                for (int i = 0; i < p - 1 && temp != nullptr; i++) {temp = temp->next;}
+                if (temp != nullptr && temp->next != nullptr) 
+                {
                     Node* delNode = temp->next;
                     temp->next = temp->next->next;
                     delete delNode;
@@ -78,15 +157,17 @@ class LinkedList {
             }
         }
 
-        void printList() {
+        void printList() 
+     {
             Node* temp = head;
-            while (temp != nullptr) {
+            while (temp != nullptr) 
+            {
                 cout << temp->data << " ";
                 temp = temp->next;
             }
             cout << endl;
         }
-};
+     };
 
 int main() {
     int n;
