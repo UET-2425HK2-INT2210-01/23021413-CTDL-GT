@@ -1,3 +1,30 @@
+// 2. The linked list structure has two following operations:
+// − insert (p, x): insert an integer number x at position p, elements from
+//                  p are moved backward one position.
+// − delete (p): delete element at position p, elements after p are moved
+//               forward one position.
+// Start from an empty list, your task is to implement a linked list, perform
+// operations read from the keyboard.
+//    Input:
+//    − The first line contains an integer number n which is the number of
+//      operations.
+//    − The next n lines contain the operation description. One operation is
+//      in one line in either format:
+//      ● insert p x
+//      ● delete p
+// where p is the position and x is the number.
+//    Output: Write the resulting linked list to the screen in one line. Numbers
+//            are separated by spaces.
+
+// Example
+// Keyboard          Screen
+// 5                 1 2 3
+// insert 0 1
+// insert 1 3
+// insert 1 4
+// insert 2 2
+// delete 1
+
 #include <iostream>
 using namespace std;
 struct Node {
