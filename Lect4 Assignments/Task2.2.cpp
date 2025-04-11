@@ -1,5 +1,8 @@
+2. Draw the 11-entry hash that results from using the hash function h(i) = (2i+5) mod
+11 to hash keys 12, 44, 13, 88, 23, 94, 11, 39, 20, 16, 5.
+b) Assume collisions are handled by linear probing.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // output expected: 3 39 94 16 5 23 13 88 44 11 12 
-
 #include <iostream>
 #define HASH_SIZE 11
 using namespace std;
