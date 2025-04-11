@@ -1,3 +1,5 @@
+2. Given an integer number n, your task is to write two different algorithms in pseudo-codes to calculate 2^n, and evaluate the complexity of the algorithms.
+
 // Algorithm 1: [Time complexity O(n)]
 Function calculateTwoPowerIterative(n):
     result = 1  
