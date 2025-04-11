@@ -1,3 +1,5 @@
+5. Your task is to write operations of stack data structure in pseudo-codes using an array, then evaluate the complexities of the operations.
+
 // Push Operation: Time Complexity: O(1)
 function push(stack, top, item):
     if top == stack.size - 1:  # Stack is full
