@@ -1,6 +1,31 @@
+PseudoCode
+int hash_function(int key)
+    return (2 * key + 5) % 11
+    
+Function linear_Probing(databyte hashTable[], int key)
+    int index = hash_function(key)
+    while (hashTable[index] != -1) 
+        index = (index + 1) % HASH_SIZE
+    hashTable[index] = key
+
+Function Print(int hashTable)
+    for (int i = 0; i < HASH_SIZE; i++)
+        cout << hashTable[i]
+    cout << endl
+
+int main()
+   const int HASH_SIZE = 11
+   int hashTable[HASH_SIZE]
+   for (int i = 0; i < HASH_SIZE; i++)
+       hashTable[i] = -1
+   int keys[] = {12, 44, 13, 88, 23, 94, 11, 39, 20, 16, 5}
+for (int key : keys)
+    linear_Probing(hashTable, key)
+Print(hashTable)
+-------------------------------------------------------------------------------------------------------------------------
 2. Draw the 11-entry hash that results from using the hash function h(i) = (2i+5) mod
 11 to hash keys 12, 44, 13, 88, 23, 94, 11, 39, 20, 16, 5.
-b) Assume collisions are handled by linear probing.
+b) Assume collisions are handled by linear probing. (Thăm dò tuyến tính)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // output expected: 3 39 94 16 5 23 13 88 44 11 12 
 #include <iostream>
