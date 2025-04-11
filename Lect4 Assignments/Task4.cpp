@@ -1,3 +1,29 @@
+4. A student has following information:
+● ID: An unique integer number
+● Name: a string of at most 100 characters
+● Class: a string of at most 30 characters
+Your task is to write a program to manage students for your university with follow
+operations:
+● Insert (ID, Name, Class): Insert a student into the list
+● Delete (ID): Delete student ID from the list
+● Infor (ID): Return the Name and Class of student ID separated by a
+comma. If the student is not exist, return string ‘NA,NA’
+    
+Input: Operations come from keyboard. Each operation is in one line.
+    
+Output: Write to the screen the results from calling infor(ID) operations.
+    
+Example:
+Keyboard                               Screen
+Insert(1,Tuan,K61CS)                    NA,NA
+Insert(2,Vinh,K43C)                     Vinh,K43C
+Infor(3)                                NA,NA
+Infor(2)
+Delete(2)
+Infor(2)
+
+------------------------------------------------------------------------------------------------------------------
+
 #include <iostream>
 using namespace std;
 #define MAX_NAME_LENGTH 100
