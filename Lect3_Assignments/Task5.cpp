@@ -1,4 +1,4 @@
-5. Your task is to write operations of [Stack] data structure in pseudo-codes using an [Array], then evaluate the complexities of the operations.
+5. Your task is to write operations of [Stack] data structure in pseudo-codes using an [Array], then evaluate the [Complexities] of the operations.
 
 // Push Operation: Time Complexity: O(1)
 function push(stack, top, item):
