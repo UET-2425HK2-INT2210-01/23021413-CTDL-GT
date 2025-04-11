@@ -1,3 +1,70 @@
+PseudoCode
+struct Student 
+   int ID
+   char name[MAX_NAME_LENGTH]
+   char grade[MAX_GRADE_LENGTH]
+   Student* next
+
+   Student(int ID = 0, const char* name = "", const char* grade = "")
+       this->ID = ID
+       this->next = NULL
+    
+Function Insert(Student*& head, int ID, const char* name, const char* grade)
+       Student* newStudent = new Student(ID, name, grade)
+       if (head == NULL) head = newStudent
+       else 
+          Student* temp = head
+          while (temp->next != NULL) temp = temp->next
+          temp->next = newStudent
+
+Function Delete(Student*& head, int ID)
+        if (head == NULL) return
+        if (head->ID == ID)
+           Student* temp = head
+           head = head->next
+           delete temp
+           return 
+        Student* prev = head
+        Student* curr = head->next
+        while (curr = head->next)
+           if (curr->ID == ID)
+              prev->next = curr->next
+              delete curr
+              return
+           prev = curr
+           curr = curr->next
+    
+Function Infor(Student*& head, int ID)
+      Student* temp = head
+      While (temp != NULL)
+           if (temp->ID == ID) cout << temp->name << "," << temp->grade << endl; return;
+           temp = temp->next
+      cout << "NA, NA" << endl
+
+int main() 
+      Student* List_Student = NULL
+      Student s 
+      while (true) {
+        char operation[20];
+        cin.getline(operation, 20);
+        if (operation starts with "Insert") 
+            int ID;
+            char name[MAX_NAME_LENGTH], grade[MAX_GRADE_LENGTH];
+            sscanf(operation, "Insert(%d,%[^,],%[^)]", &ID, name, grade);
+            s.Insert(List_Student, ID, name, grade);
+        else if (operation starts with "Delete") 
+            int ID;
+            sscanf(operation, "Delete(%d)", &ID);
+            s.Delete(List_Student, ID);
+        else if (operation starts with "Infor") 
+            int ID;
+            sscanf(operation, "Infor(%d)", &ID);
+            s.Infor(List_Student, ID);
+        else if (operation == "EXIT") 
+            break;
+    return 0;
+        
+-----------------------------------------------------------------------------------------------------------------------
 4. A student has following information:
 ● ID: An unique integer number
 ● Name: a string of at most 100 characters
@@ -14,13 +81,13 @@ Input: Operations come from keyboard. Each operation is in one line.
 Output: Write to the screen the results from calling infor(ID) operations.
     
 Example:
-Keyboard                               Screen
-Insert(1,Tuan,K61CS)                    NA,NA
-Insert(2,Vinh,K43C)                     Vinh,K43C
-Infor(3)                                NA,NA
-Infor(2)
-Delete(2)
-Infor(2)
+Keyboard                                        Screen
+Insert(23012312, Tuan, K61CS)                    NA,NA
+Insert(23122311, Vinh, K43C)                     Vinh,K43C
+Infor(23012322)                                  NA,NA
+Infor(23122311)
+Delete(23122311)
+Infor(23122311)
 
 ------------------------------------------------------------------------------------------------------------------
 
