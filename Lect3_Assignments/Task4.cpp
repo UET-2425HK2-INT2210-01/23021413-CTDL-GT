@@ -1,4 +1,4 @@
-4. Your task is to write operations of queue data structure in pseudo-codes using a linked list, then evaluate the complexities of the operations.
+4. Your task is to write operations of [Queue] data structure in pseudo-codes using a [Linked List], then evaluate the [Complexities] of the operations.
 
 // Enqueue Operation: 
 // Time Complexity: O(1)
