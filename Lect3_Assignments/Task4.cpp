@@ -1,3 +1,5 @@
+4. Your task is to write operations of queue data structure in pseudo-codes using a linked list, then evaluate the complexities of the operations.
+
 // Enqueue Operation: 
 // Time Complexity: O(1)
 // Space Complexity: O(1)
