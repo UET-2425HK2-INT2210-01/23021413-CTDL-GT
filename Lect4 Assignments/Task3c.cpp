@@ -1,3 +1,7 @@
+3. Draw the 17-entry hash that results from using the hash function h(i) = (i+3) mod
+17 to hash keys 1, 3, 18, 8, 23, 35, 11, 36, 20, 16.
+c) Assume collisions are handled by chaining.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Ví dụ testcase: 
 // Hash table:
 // Index 0: NULL
