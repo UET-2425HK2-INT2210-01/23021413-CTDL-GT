@@ -1,3 +1,7 @@
+3. Draw the 17-entry hash that results from using the hash function h(i) = (i+3) mod
+17 to hash keys 1, 3, 18, 8, 23, 35, 11, 36, 20, 16.
+d) Assume collisions are handled by linear probing.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Hy vọng đầu ra là: 13 3 18 8 23 35 11 36 20 16 -1 -1 -1 -1 -1 -1 -1 
 #include <iostream>
 #define HASH_SIZE 17  // Cập nhật kích thước bảng băm thành 17
