@@ -1,4 +1,4 @@
-6. Your task is to write operations of [STACK] data structure in pseudo-codes using a [Linked List], then evaluate the complexities of the operations.
+6. Your task is to write operations of [Stack] data structure in pseudo-codes using a [Linked List], then evaluate the [Complexities] of the operations.
 // Stack Node Structure: 
 struct Node 
     int data;
