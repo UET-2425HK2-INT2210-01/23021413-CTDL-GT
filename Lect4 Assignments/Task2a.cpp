@@ -6,7 +6,7 @@ a) Assume collisions are handled by chaining. (Linked List)
 16, 5. Hãy dùng "Hash Function" sau: h(i) = (2i + 5) mod 11 để "Băm các Keys" thành "Value"
     ==> Dùng phương pháp chaining hay còn gọi là coi Bucket là Linked List, tức là 1 Node quản lý 1 Node --> Hash_Set
 _________________________________________________________________
-|        |             |           |      Bucket (Linked List)  |  
+|        |             |        Bucket (Linked List)            |  
 | Keys   |   Value     | Index     |     Giá trị                |
 |  12    |             |           |     12                     |
 |  44    |             |           |     44                     |
